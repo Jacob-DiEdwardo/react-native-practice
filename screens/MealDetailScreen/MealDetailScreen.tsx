@@ -1,27 +1,27 @@
-import { useLayoutEffect, useContext } from 'react';
-import { View, Text, Image, StyleSheet, ScrollView } from 'react-native';
+import { useLayoutEffect, useContext } from 'react'
+import { View, Text, Image, StyleSheet, ScrollView } from 'react-native'
+import IconButton from '../../components/IconButton'
+import List from '../../components/List'
+import Subtitle from '../../components/Subtitle'
+import MealDetails from '../../components/MealDetails'
+import { MEALS } from '../../data/dummy-data'
+import { FavoritesContext } from '../../store/context/favorites-context'
+import type { MealDetailScreenProps } from './types'
 
-import IconButton from '../components/IconButton';
-import List from '../components/MealDetail/List';
-import Subtitle from '../components/MealDetail/Subtitle';
-import MealDetails from '../components/MealDetails';
-import { MEALS } from '../data/dummy-data';
-import { FavoritesContext } from '../store/context/favorites-context';
+const MealDetailScreen: React.FC<MealDetailScreenProps> = ({ route, navigation }) => {
+  const favoriteMealsCtx = useContext(FavoritesContext)
 
-function MealDetailScreen({ route, navigation }) {
-  const favoriteMealsCtx = useContext(FavoritesContext);
+  const mealId = route.params.mealId
 
-  const mealId = route.params.mealId;
+  const selectedMeal = MEALS.find((meal) => meal.id === mealId)
 
-  const selectedMeal = MEALS.find((meal) => meal.id === mealId);
+  const mealIsFavorite = favoriteMealsCtx.ids.includes(mealId)
 
-  const mealIsFavorite = favoriteMealsCtx.ids.includes(mealId);
-
-  function changeFavoriteStatusHandler() {
+  const changeFavoriteStatusHandler = () => {
     if (mealIsFavorite) {
-      favoriteMealsCtx.removeFavorite(mealId);
+      favoriteMealsCtx.removeFavorite(mealId)
     } else {
-      favoriteMealsCtx.addFavorite(mealId);
+      favoriteMealsCtx.addFavorite(mealId)
     }
   }
 
@@ -34,10 +34,10 @@ function MealDetailScreen({ route, navigation }) {
             color="white"
             onPress={changeFavoriteStatusHandler}
           />
-        );
+        )
       },
-    });
-  }, [navigation, changeFavoriteStatusHandler]);
+    })
+  }, [navigation, changeFavoriteStatusHandler])
 
   return (
     <ScrollView style={styles.rootContainer}>
@@ -58,10 +58,10 @@ function MealDetailScreen({ route, navigation }) {
         </View>
       </View>
     </ScrollView>
-  );
+  )
 }
 
-export default MealDetailScreen;
+export default MealDetailScreen
 
 const styles = StyleSheet.create({
   rootContainer: {
@@ -87,4 +87,4 @@ const styles = StyleSheet.create({
   listContainer: {
     width: '80%',
   },
-});
+})
