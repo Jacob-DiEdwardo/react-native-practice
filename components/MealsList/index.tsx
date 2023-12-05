@@ -1,10 +1,12 @@
-import { View, FlatList, StyleSheet } from 'react-native';
+import { View, FlatList, StyleSheet } from 'react-native'
+import type { ListRenderItem } from 'react-native'
+import type { MealsListProps } from './types'
+import MealItem from '../MealItem/MealItem'
+import Meal from '../../models/meal'
 
-import MealItem from './MealItem';
-
-function MealsList({ items }) {
-  function renderMealItem(itemData) {
-    const item = itemData.item;
+const MealsList: React.FC<MealsListProps> = ({ items }) => {
+  const renderMealItem: ListRenderItem<Meal> = (itemData) => {
+    const item = itemData.item
 
     const mealItemProps = {
       id: item.id,
@@ -13,8 +15,8 @@ function MealsList({ items }) {
       affordability: item.affordability,
       complexity: item.complexity,
       duration: item.duration,
-    };
-    return <MealItem {...mealItemProps} />;
+    }
+    return <MealItem {...mealItemProps} />
   }
 
   return (
@@ -25,14 +27,14 @@ function MealsList({ items }) {
         renderItem={renderMealItem}
       />
     </View>
-  );
+  )
 }
 
-export default MealsList;
+export default MealsList
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
   },
-});
+})

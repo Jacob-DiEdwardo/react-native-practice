@@ -1,3 +1,7 @@
+export type Ingredients = string[]
+
+export type Steps = string[]
+
 class Meal {
   id: string
   categoryIds: string[]
@@ -6,8 +10,8 @@ class Meal {
   complexity: string
   imageUrl: string
   duration: number
-  ingredients: string[]
-  steps: string[]
+  ingredients: Ingredients
+  steps: Steps
   isGlutenFree: boolean
   isVegan: boolean
   isVegetarian: boolean
@@ -21,8 +25,8 @@ class Meal {
     complexity: string,
     imageUrl: string,
     duration: number,
-    ingredients: string[],
-    steps: string[],
+    ingredients: Ingredients,
+    steps: Steps,
     isGlutenFree: boolean,
     isVegan: boolean,
     isVegetarian: boolean,

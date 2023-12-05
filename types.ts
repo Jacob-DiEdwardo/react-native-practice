@@ -8,3 +8,9 @@ export type DrawerNavigatorParamList = {
   Categories: undefined
   Favorites: undefined
 }
+
+declare global {
+  namespace ReactNavigation {
+    interface RootParamList extends RootStackNavigatorParamList {}
+  }
+}

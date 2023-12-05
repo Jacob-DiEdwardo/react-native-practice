@@ -5,25 +5,26 @@ import {
   Image,
   StyleSheet,
   Platform,
-} from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+} from 'react-native'
+import { useNavigation } from '@react-navigation/native'
+import type { MealItemProps } from './types'
 
-import MealDetails from '../MealDetails';
+import MealDetails from '../MealDetails'
 
-function MealItem({
+const MealItem: React.FC<MealItemProps> = ({
   id,
   title,
   imageUrl,
   duration,
   complexity,
   affordability,
-}) {
-  const navigation = useNavigation();
+}) => {
+  const navigation = useNavigation()
 
-  function selectMealItemHandler() {
+  const selectMealItemHandler = () => {
     navigation.navigate('MealDetail', {
       mealId: id,
-    });
+    })
   }
 
   return (
@@ -46,10 +47,10 @@ function MealItem({
         </View>
       </Pressable>
     </View>
-  );
+  )
 }
 
-export default MealItem;
+export default MealItem
 
 const styles = StyleSheet.create({
   mealItem: {
@@ -80,4 +81,4 @@ const styles = StyleSheet.create({
     fontSize: 18,
     margin: 8,
   },
-});
+})

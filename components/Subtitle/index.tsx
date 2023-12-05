@@ -1,14 +1,13 @@
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native'
+import type { SubtitleProps } from './types'
 
-function Subtitle({children}) {
-  return (
-    <View style={styles.subtitleContainer}>
-      <Text style={styles.subtitle}>{children}</Text>
-    </View>
-  );
-}
+const Subtitle: React.FC<SubtitleProps> = ({children}) => (
+  <View style={styles.subtitleContainer}>
+    <Text style={styles.subtitle}>{children}</Text>
+  </View>
+)
 
-export default Subtitle;
+export default Subtitle
 
 const styles = StyleSheet.create({
   subtitle: {
@@ -24,4 +23,4 @@ const styles = StyleSheet.create({
     borderBottomColor: '#e2b497',
     borderBottomWidth: 2,
   },
-});
+})
