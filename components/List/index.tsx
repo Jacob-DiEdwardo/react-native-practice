@@ -1,14 +1,15 @@
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native'
+import type { ListProps } from './types'
 
-function List({ data }) {
-  return data.map((dataPoint) => (
+const List: React.FC<ListProps> = ({ data }) => (
+  data.map((dataPoint) => (
     <View key={dataPoint} style={styles.listItem}>
       <Text style={styles.itemText}>{dataPoint}</Text>
     </View>
-  ));
-}
+  ))
+)
 
-export default List;
+export default List
 
 const styles = StyleSheet.create({
   listItem: {
@@ -23,4 +24,4 @@ const styles = StyleSheet.create({
     color: '#351401',
     textAlign: 'center',
   },
-});
+})

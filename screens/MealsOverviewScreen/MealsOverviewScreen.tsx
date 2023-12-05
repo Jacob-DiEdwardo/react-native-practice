@@ -1,5 +1,5 @@
 import { useLayoutEffect } from 'react'
-import MealsList from '../../components/MealsList/MealsList'
+import MealsList from '../../components/MealsList'
 import { MEALS, CATEGORIES } from '../../data/dummy-data'
 import type { MealsOverviewScreenProps } from './types'
 
