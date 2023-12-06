@@ -9,18 +9,18 @@ To set up locally:
 3. Then, run `npm run start`
 
 TODO:
-[x] Switch from using JS to using TS
-[x] Add ES6 syntax and remove semicolons
-[x] Add types and fix TS errors
-[x] Re-factor to use HOCs/hooks architecture
-[] Switch from using React Context API to hookstate
-[] Add nativewind CSS
-[] Switch from using dummy data to using a real API (GraphQL? Beers?)
-[] Add unit testing
-[] Add authentication (firebase?)
-[] Add some new screens/features (device features?)
-[] Feature: remove favorite directly from list on favorites page
-[] Add push notifications?
-[] Use native device functions (camera?)
-[] Get running on Mac/xCode/AndroidStudio
-[] Publish to app store
+- [x] Switch from using JS to using TS
+- [x] Add ES6 syntax and remove semicolons
+- [x] Add types and fix TS errors
+- [x] Re-factor to use HOCs/hooks architecture
+- [] Switch from using React Context API to hookstate
+- [] Add nativewind CSS
+- [] Switch from using dummy data to using a real API (GraphQL?)
+- [] Add unit testing
+- [] Add authentication (firebase?)
+- [] Add some new screens/features (device features?)
+- [] Feature: remove favorite directly from list on favorites page
+- [] Add push notifications?
+- [] Use native device functions (camera?)
+- [] Get running on Mac/xCode/AndroidStudio
+- [] Publish to app store
