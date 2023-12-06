@@ -1,40 +1,34 @@
-import { View, FlatList, StyleSheet } from 'react-native'
-import type { ListRenderItem } from 'react-native'
-import type { MealsListProps } from './types'
-import MealItem from '../MealItem/MealItem'
-import Meal from '../../models/meal'
+import withHOC from '../../utils/withHOC'
+import MealItem from '../MealItem'
+import type {
+  WithMealsListIncomingProps,
+  RenderMealItem,
+  WithMealsListOutgoingProps,
+} from './types'
+import MealsList from './MealsList'
 
-const MealsList: React.FC<MealsListProps> = ({ items }) => {
-  const renderMealItem: ListRenderItem<Meal> = (itemData) => {
-    const item = itemData.item
-
-    const mealItemProps = {
-      id: item.id,
-      title: item.title,
-      imageUrl: item.imageUrl,
-      affordability: item.affordability,
-      complexity: item.complexity,
-      duration: item.duration,
+const withMealsList = withHOC<WithMealsListIncomingProps, WithMealsListOutgoingProps>(
+  ({ items }) => {
+    const renderMealItem: RenderMealItem = (itemData) => {
+      const item = itemData.item
+  
+      const mealItemProps = {
+        id: item.id,
+        title: item.title,
+        imageUrl: item.imageUrl,
+        affordability: item.affordability,
+        complexity: item.complexity,
+        duration: item.duration,
+      }
+      return <MealItem {...mealItemProps} />
     }
-    return <MealItem {...mealItemProps} />
-  }
 
-  return (
-    <View style={styles.container}>
-      <FlatList
-        data={items}
-        keyExtractor={(item) => item.id}
-        renderItem={renderMealItem}
-      />
-    </View>
-  )
-}
-
-export default MealsList
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 16,
+    return {
+      items,
+      renderMealItem,
+    }
   },
-})
+  'withMealsList',
+)
+
+export default withMealsList(MealsList)

@@ -6,49 +6,37 @@ import {
   StyleSheet,
   Platform,
 } from 'react-native'
-import { useNavigation } from '@react-navigation/native'
-import type { MealItemProps } from './types'
-
+import type { WithMealItemOutgoingProps } from './types'
 import MealDetails from '../MealDetails'
 
-const MealItem: React.FC<MealItemProps> = ({
-  id,
+const MealItem: React.FC<WithMealItemOutgoingProps> = ({
   title,
   imageUrl,
   duration,
   complexity,
   affordability,
-}) => {
-  const navigation = useNavigation()
-
-  const selectMealItemHandler = () => {
-    navigation.navigate('MealDetail', {
-      mealId: id,
-    })
-  }
-
-  return (
-    <View style={styles.mealItem}>
-      <Pressable
-        android_ripple={{ color: '#ccc' }}
-        style={({ pressed }) => (pressed ? styles.buttonPressed : null)}
-        onPress={selectMealItemHandler}
-      >
-        <View style={styles.innerContainer}>
-          <View>
-            <Image source={{ uri: imageUrl }} style={styles.image} />
-            <Text style={styles.title}>{title}</Text>
-          </View>
-          <MealDetails
-            duration={duration}
-            affordability={affordability}
-            complexity={complexity}
-          />
+  selectMealItemHandler,
+}) => (
+  <View style={styles.mealItem}>
+    <Pressable
+      android_ripple={{ color: '#ccc' }}
+      style={({ pressed }) => (pressed ? styles.buttonPressed : null)}
+      onPress={selectMealItemHandler}
+    >
+      <View style={styles.innerContainer}>
+        <View>
+          <Image source={{ uri: imageUrl }} style={styles.image} />
+          <Text style={styles.title}>{title}</Text>
         </View>
-      </Pressable>
-    </View>
-  )
-}
+        <MealDetails
+          duration={duration}
+          affordability={affordability}
+          complexity={complexity}
+        />
+      </View>
+    </Pressable>
+  </View>
+)
 
 export default MealItem
 
