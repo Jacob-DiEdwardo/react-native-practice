@@ -1,14 +1,15 @@
-import { useContext } from 'react'
 import withHOC from '../../utils/withHOC'
-import { FavoritesContext } from '../../store/context/favorites-context'
+import useFavoritesState from '../../hooks/useFavoritesState'
 import { MEALS } from '../../data/dummy-data'
 import type { WithFavoritesScreenOutgoingProps } from './types'
 import FavoritesScreen from './FavoritesScreen'
 
 const withFavoritesScreen = withHOC<{}, WithFavoritesScreenOutgoingProps>(
   () => {
-    const favoriteMealsCtx = useContext(FavoritesContext)
-    const favoriteMeals = MEALS.filter(meal => favoriteMealsCtx.ids.includes(meal.id))
+    const { favoritesState } = useFavoritesState()
+    const favoriteMeals = MEALS.filter((meal) =>
+      favoritesState.includes(meal.id),
+    )
 
     return {
       favoriteMeals,

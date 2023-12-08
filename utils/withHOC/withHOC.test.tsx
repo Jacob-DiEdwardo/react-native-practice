@@ -13,7 +13,9 @@ interface DummyComponentProps {
 
 afterEach(cleanup)
 
-const DummyComponent: React.FC<DummyComponentProps> = ({ test }) => <div>{test}</div>
+const DummyComponent: React.FC<DummyComponentProps> = ({ test }) => (
+  <div>{test}</div>
+)
 const withDummyComponent = withHOC(() => ({ test: 'Hello World!' }))
 const HOCedDummyComponent = withDummyComponent(DummyComponent)
 

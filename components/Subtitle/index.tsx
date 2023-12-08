@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet } from 'react-native'
 import type { SubtitleProps } from './types'
 
-const Subtitle: React.FC<SubtitleProps> = ({children}) => (
+const Subtitle: React.FC<SubtitleProps> = ({ children }) => (
   <View style={styles.subtitleContainer}>
     <Text style={styles.subtitle}>{children}</Text>
   </View>

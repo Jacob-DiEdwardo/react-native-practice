@@ -3,16 +3,16 @@ import MealsList from '../../components/MealsList'
 import type { WithFavoritesScreenOutgoingProps } from './types'
 
 const FavoritesScreen: React.FC<WithFavoritesScreenOutgoingProps> = ({
-  favoriteMeals
+  favoriteMeals,
 }) => (
   <>
-    {
-      favoriteMeals.length === 0 ?
-        <View style={styles.rootContainer}>
-          <Text style={styles.text}>You have no favorite meals yet.</Text>
-        </View> :
-        <MealsList items={favoriteMeals} />
-    }
+    {favoriteMeals.length === 0 ? (
+      <View style={styles.rootContainer}>
+        <Text style={styles.text}>You have no favorite meals yet.</Text>
+      </View>
+    ) : (
+      <MealsList items={favoriteMeals} />
+    )}
   </>
 )
 

@@ -2,11 +2,7 @@ import { Pressable, StyleSheet } from 'react-native'
 import { Ionicons } from '@expo/vector-icons'
 import type { IconButtonProps } from './types'
 
-const IconButton: React.FC<IconButtonProps> = ({
-  icon,
-  color,
-  onPress
-}) => (
+const IconButton: React.FC<IconButtonProps> = ({ icon, color, onPress }) => (
   <Pressable
     onPress={onPress}
     style={({ pressed }) => pressed && styles.pressed}

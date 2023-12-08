@@ -3,7 +3,7 @@ import { CATEGORIES } from '../../data/dummy-data'
 import type { WithCategoriesScreenOutgoingProps } from './types'
 
 const CategoriesScreen: React.FC<WithCategoriesScreenOutgoingProps> = ({
-  renderCategoryItem
+  renderCategoryItem,
 }) => (
   <FlatList
     data={CATEGORIES}

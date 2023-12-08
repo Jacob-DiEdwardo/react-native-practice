@@ -7,28 +7,28 @@ import type {
 } from './types'
 import MealsList from './MealsList'
 
-const withMealsList = withHOC<WithMealsListIncomingProps, WithMealsListOutgoingProps>(
-  ({ items }) => {
-    const renderMealItem: RenderMealItem = (itemData) => {
-      const item = itemData.item
-  
-      const mealItemProps = {
-        id: item.id,
-        title: item.title,
-        imageUrl: item.imageUrl,
-        affordability: item.affordability,
-        complexity: item.complexity,
-        duration: item.duration,
-      }
-      return <MealItem {...mealItemProps} />
-    }
+const withMealsList = withHOC<
+  WithMealsListIncomingProps,
+  WithMealsListOutgoingProps
+>(({ items }) => {
+  const renderMealItem: RenderMealItem = (itemData) => {
+    const item = itemData.item
 
-    return {
-      items,
-      renderMealItem,
+    const mealItemProps = {
+      id: item.id,
+      title: item.title,
+      imageUrl: item.imageUrl,
+      affordability: item.affordability,
+      complexity: item.complexity,
+      duration: item.duration,
     }
-  },
-  'withMealsList',
-)
+    return <MealItem {...mealItemProps} />
+  }
+
+  return {
+    items,
+    renderMealItem,
+  }
+}, 'withMealsList')
 
 export default withMealsList(MealsList)

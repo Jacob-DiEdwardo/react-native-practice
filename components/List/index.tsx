@@ -1,13 +1,12 @@
 import { View, Text, StyleSheet } from 'react-native'
 import type { ListProps } from './types'
 
-const List: React.FC<ListProps> = ({ data }) => (
+const List: React.FC<ListProps> = ({ data }) =>
   data.map((dataPoint) => (
     <View key={dataPoint} style={styles.listItem}>
       <Text style={styles.itemText}>{dataPoint}</Text>
     </View>
   ))
-)
 
 export default List
 

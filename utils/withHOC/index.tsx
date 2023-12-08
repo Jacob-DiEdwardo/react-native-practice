@@ -6,7 +6,7 @@ const withHOC =
   <IncomingProps = {}, OutgoingProps = {}>(
     hoc: HOC<IncomingProps, OutgoingProps>,
     displayName?: string,
-  ) => 
+  ) =>
   (WrappedComponent: React.FC<IncomingProps & OutgoingProps>) => {
     const Wrapper = (props: IncomingProps) => (
       <WrappedComponent {...props} {...hoc(props)} />

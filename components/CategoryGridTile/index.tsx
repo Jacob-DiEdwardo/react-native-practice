@@ -4,7 +4,7 @@ import type { CategoryGridTileProps } from './types'
 const CategoryGridTile: React.FC<CategoryGridTileProps> = ({
   title,
   color,
-  onPress
+  onPress,
 }) => (
   <View style={styles.gridItem}>
     <Pressable
