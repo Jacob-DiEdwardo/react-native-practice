@@ -1,11 +1,11 @@
-import { View, FlatList, StyleSheet } from 'react-native'
+import { View, FlatList } from 'react-native'
 import type { WithMealsListOutgoingProps } from './types'
 
 const MealsList: React.FC<WithMealsListOutgoingProps> = ({
   items,
   renderMealItem,
 }) => (
-  <View style={styles.container}>
+  <View className="flex-1 p-4">
     <FlatList
       data={items}
       keyExtractor={(item) => item.id}
@@ -15,10 +15,3 @@ const MealsList: React.FC<WithMealsListOutgoingProps> = ({
 )
 
 export default MealsList
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 16,
-  },
-})
