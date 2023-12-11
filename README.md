@@ -16,7 +16,7 @@ TODO:
 - [x] Re-factor to use HOCs/hooks architecture
 - [x] Switch from using React Context API to hookstate
 - [x] Re-factor so all React files are nested in a `src` folder
-- [] Add nativewind CSS
+- [x] Add nativewind CSS
 - [] Switch from using dummy data to using a real API (GraphQL?)
 - [] Add unit testing
 - [] Add authentication (firebase?)
